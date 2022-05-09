@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'sample_page.dart';
+import 'screen/sample_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,34 +34,26 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ListTile(
-              title: Text('Map'),
-              onTap: () {
-                print('Map');
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SamplePage()));
-              },
-            ),
-            ListTile(
-              title: Text('Album'),
-              onTap: () {
-                print('Album');
-              },
-            ),
-            ListTile(
-              title: Text('Phone'),
-              onTap: () => {
-                print('Phone'),
-              },
-            ),
-            Spacer(),
-          ],
-        ),
-      ),
+      body: ListView(children: [
+        _homeListItem("メニュー1", () {
+          print("onTap called.");
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SamplePage()));
+        })
+      ]),
     );
   }
+}
+
+Widget _homeListItem(String title, void Function() function) {
+  return Container(
+    decoration: new BoxDecoration(
+        border: new Border(bottom: BorderSide(width: 1.0, color: Colors.grey))),
+    child: ListTile(
+      title: Text(
+        title,
+      ),
+      onTap: function,
+    ),
+  );
 }
