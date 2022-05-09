@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView(children: [
-        HomeListItem("メニュー1", () {
+        homeListItem("メニュー1", () {
           print("onTap called.");
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => SamplePage()));
