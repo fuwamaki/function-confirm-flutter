@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screen/sample_page.dart';
+import 'component/home_list_item.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: ListView(children: [
-        _homeListItem("メニュー1", () {
+        HomeListItem("メニュー1", () {
           print("onTap called.");
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => SamplePage()));
@@ -43,17 +44,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ]),
     );
   }
-}
-
-Widget _homeListItem(String title, void Function() function) {
-  return Container(
-    decoration: new BoxDecoration(
-        border: new Border(bottom: BorderSide(width: 1.0, color: Colors.grey))),
-    child: ListTile(
-      title: Text(
-        title,
-      ),
-      onTap: function,
-    ),
-  );
 }
