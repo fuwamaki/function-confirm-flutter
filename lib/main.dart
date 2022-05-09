@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screen/sample_page.dart';
-import 'component/home_list_item.dart';
+import 'component/home_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,13 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView(children: [
-        homeListItem("メニュー1", () {
-          print("onTap called.");
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => SamplePage()));
-        })
-      ]),
+      body: homeList(context),
     );
   }
 }
