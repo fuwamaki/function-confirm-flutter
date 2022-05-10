@@ -25,10 +25,8 @@ Widget homeList(BuildContext context) {
           context, MaterialPageRoute(builder: (context) => ColorPalettePage()));
     }),
     homeListItem("segue animation", () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => OpenContainerTransformDemo()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SegueAnimationPage()));
     }),
   ]);
 }

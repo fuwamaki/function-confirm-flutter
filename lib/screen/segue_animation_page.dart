@@ -1,7 +1,3 @@
-// Copyright 2019 The Flutter Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
@@ -38,16 +34,14 @@ const String _loremIpsumParagraph =
 
 const double _fabDimension = 56;
 
-class OpenContainerTransformDemo extends StatefulWidget {
-  const OpenContainerTransformDemo({Key? key}) : super(key: key);
+class SegueAnimationPage extends StatefulWidget {
+  const SegueAnimationPage({Key? key}) : super(key: key);
 
   @override
-  State<OpenContainerTransformDemo> createState() =>
-      _OpenContainerTransformDemoState();
+  State<SegueAnimationPage> createState() => _SegueAnimationPageState();
 }
 
-class _OpenContainerTransformDemoState
-    extends State<OpenContainerTransformDemo> {
+class _SegueAnimationPageState extends State<SegueAnimationPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   ContainerTransitionType _transitionType = ContainerTransitionType.fade;
 
