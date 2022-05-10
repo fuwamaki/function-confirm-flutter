@@ -5,6 +5,7 @@ import '../screen/test_list_page.dart';
 import '../screen/typography_page.dart';
 import '../screen/color_palette_page.dart';
 import '../screen/segue_animation_page.dart';
+import '../screen/cupertino_tab_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -27,6 +28,10 @@ Widget homeList(BuildContext context) {
     homeListItem("segue animation", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => SegueAnimationPage()));
+    }),
+    homeListItem("cupertino tab", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => CupertinoTabBarDemo()));
     }),
   ]);
 }
