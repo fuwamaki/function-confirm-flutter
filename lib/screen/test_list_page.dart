@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class TestListPage extends StatelessWidget {
   @override
@@ -22,7 +23,7 @@ class TestListPage extends StatelessWidget {
                 title: Text(localizations.testListItemTitle(index)),
                 subtitle: Text(localizations.testListSubText),
                 onTap: () {
-                  print("tap $index");
+                  Fluttertoast.showToast(msg: "tap $index");
                 },
               ),
           ],
