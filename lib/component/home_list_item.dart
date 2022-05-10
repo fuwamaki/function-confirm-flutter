@@ -5,10 +5,10 @@ Widget homeListItem(String title, void Function() function) {
     decoration: new BoxDecoration(
         border: new Border(bottom: BorderSide(width: 1.0, color: Colors.grey))),
     child: ListTile(
-      title: Text(
-        title,
-      ),
-      onTap: function,
-    ),
+        title: Text(
+          title,
+        ),
+        onTap: function,
+        trailing: Icon(Icons.arrow_forward_ios_rounded)),
   );
 }
