@@ -6,6 +6,7 @@ import '../screen/typography_page.dart';
 import '../screen/color_palette_page.dart';
 import '../screen/segue_animation_page.dart';
 import '../screen/cupertino_tab_page.dart';
+import '../screen/bottom_tab_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -32,6 +33,10 @@ Widget homeList(BuildContext context) {
     homeListItem("cupertino tab", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => CupertinoTabBarDemo()));
+    }),
+    homeListItem("bottom tab", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => BottomNavigationDemo()));
     }),
   ]);
 }
