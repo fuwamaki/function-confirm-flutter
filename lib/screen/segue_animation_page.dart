@@ -106,191 +106,180 @@ class _SegueAnimationPageState extends State<SegueAnimationPage> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-
-    return Navigator(
-      // Adding [ValueKey] to make sure that the widget gets rebuilt when
-      // changing type.
-      key: ValueKey(_transitionType),
-      onGenerateRoute: (settings) {
-        return MaterialPageRoute<void>(
-          builder: (context) => Scaffold(
-            key: _scaffoldKey,
-            appBar: AppBar(
-              title: Column(
-                children: [
-                  Text(
-                    "TransformTitle",
-                  ),
-                  Text(
-                    '(${"TransformDemoInstructions"})',
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2!
-                        .copyWith(color: Colors.white),
-                  ),
-                ],
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        title: Column(
+          children: [
+            Text(
+              "TransformTitle",
+            ),
+            Text(
+              '(${"TransformDemoInstructions"})',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2!
+                  .copyWith(color: Colors.white),
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.settings,
+            ),
+            onPressed: () {
+              _showSettingsBottomModalSheet(context);
+            },
+          ),
+        ],
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(8),
+        children: [
+          _OpenContainerWrapper(
+            transitionType: _transitionType,
+            closedBuilder: (context, openContainer) {
+              return _DetailsCard(openContainer: openContainer);
+            },
+          ),
+          const SizedBox(height: 16),
+          _OpenContainerWrapper(
+            transitionType: _transitionType,
+            closedBuilder: (context, openContainer) {
+              return _DetailsListTile(openContainer: openContainer);
+            },
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: _OpenContainerWrapper(
+                  transitionType: _transitionType,
+                  closedBuilder: (context, openContainer) {
+                    return _SmallDetailsCard(
+                      openContainer: openContainer,
+                      subtitle: "MotionPlaceholderSubtitle",
+                    );
+                  },
+                ),
               ),
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.settings,
-                  ),
-                  onPressed: () {
-                    _showSettingsBottomModalSheet(context);
-                  },
-                ),
-              ],
-            ),
-            body: ListView(
-              padding: const EdgeInsets.all(8),
-              children: [
-                _OpenContainerWrapper(
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: _OpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
-                    return _DetailsCard(openContainer: openContainer);
+                    return _SmallDetailsCard(
+                      openContainer: openContainer,
+                      subtitle: "MotionPlaceholderSubtitle",
+                    );
                   },
                 ),
-                const SizedBox(height: 16),
-                _OpenContainerWrapper(
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: _OpenContainerWrapper(
                   transitionType: _transitionType,
                   closedBuilder: (context, openContainer) {
-                    return _DetailsListTile(openContainer: openContainer);
+                    return _SmallDetailsCard(
+                      openContainer: openContainer,
+                      subtitle: "MotionSmallPlaceholderSubtitle",
+                    );
                   },
                 ),
-                const SizedBox(
-                  height: 16,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: _OpenContainerWrapper(
+                  transitionType: _transitionType,
+                  closedBuilder: (context, openContainer) {
+                    return _SmallDetailsCard(
+                      openContainer: openContainer,
+                      subtitle: "MotionSmallPlaceholderSubtitle",
+                    );
+                  },
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: _OpenContainerWrapper(
-                        transitionType: _transitionType,
-                        closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
-                            openContainer: openContainer,
-                            subtitle: "MotionPlaceholderSubtitle",
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: _OpenContainerWrapper(
-                        transitionType: _transitionType,
-                        closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
-                            openContainer: openContainer,
-                            subtitle: "MotionPlaceholderSubtitle",
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Expanded(
+                child: _OpenContainerWrapper(
+                  transitionType: _transitionType,
+                  closedBuilder: (context, openContainer) {
+                    return _SmallDetailsCard(
+                      openContainer: openContainer,
+                      subtitle: "MotionSmallPlaceholderSubtitle",
+                    );
+                  },
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: _OpenContainerWrapper(
-                        transitionType: _transitionType,
-                        closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
-                            openContainer: openContainer,
-                            subtitle: "MotionSmallPlaceholderSubtitle",
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: _OpenContainerWrapper(
-                        transitionType: _transitionType,
-                        closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
-                            openContainer: openContainer,
-                            subtitle: "MotionSmallPlaceholderSubtitle",
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    Expanded(
-                      child: _OpenContainerWrapper(
-                        transitionType: _transitionType,
-                        closedBuilder: (context, openContainer) {
-                          return _SmallDetailsCard(
-                            openContainer: openContainer,
-                            subtitle: "MotionSmallPlaceholderSubtitle",
-                          );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                ...List.generate(10, (index) {
-                  return OpenContainer<bool>(
-                    transitionType: _transitionType,
-                    openBuilder: (context, openContainer) =>
-                        const _DetailsPage(),
-                    tappable: false,
-                    closedShape: const RoundedRectangleBorder(),
-                    closedElevation: 0,
-                    closedBuilder: (context, openContainer) {
-                      return ListTile(
-                        leading: Image.asset(
-                          'assets/placeholder_image.png',
-                          width: 40,
-                        ),
-                        onTap: openContainer,
-                        title: Text(
-                          '${"MotionListTileTitle"} ${index + 1}',
-                        ),
-                        subtitle: Text(
-                          "MotionPlaceholderSubtitle",
-                        ),
-                      );
-                    },
-                  );
-                }),
-              ],
-            ),
-            floatingActionButton: OpenContainer(
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          ...List.generate(10, (index) {
+            return OpenContainer<bool>(
               transitionType: _transitionType,
               openBuilder: (context, openContainer) => const _DetailsPage(),
-              closedElevation: 6,
-              closedShape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(_fabDimension / 2),
-                ),
-              ),
-              closedColor: colorScheme.secondary,
+              tappable: false,
+              closedShape: const RoundedRectangleBorder(),
+              closedElevation: 0,
               closedBuilder: (context, openContainer) {
-                return SizedBox(
-                  height: _fabDimension,
-                  width: _fabDimension,
-                  child: Center(
-                    child: Icon(
-                      Icons.add,
-                      color: colorScheme.onSecondary,
-                    ),
+                return ListTile(
+                  leading: Image.asset(
+                    'assets/placeholder_image.png',
+                    width: 40,
+                  ),
+                  onTap: openContainer,
+                  title: Text(
+                    '${"MotionListTileTitle"} ${index + 1}',
+                  ),
+                  subtitle: Text(
+                    "MotionPlaceholderSubtitle",
                   ),
                 );
               },
-            ),
+            );
+          }),
+        ],
+      ),
+      floatingActionButton: OpenContainer(
+        transitionType: _transitionType,
+        openBuilder: (context, openContainer) => const _DetailsPage(),
+        closedElevation: 6,
+        closedShape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(_fabDimension / 2),
           ),
-        );
-      },
+        ),
+        closedColor: colorScheme.secondary,
+        closedBuilder: (context, openContainer) {
+          return SizedBox(
+            height: _fabDimension,
+            width: _fabDimension,
+            child: Center(
+              child: Icon(
+                Icons.add,
+                color: colorScheme.onSecondary,
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
