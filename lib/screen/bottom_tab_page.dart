@@ -30,7 +30,7 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
 
-    var bottomNavigationBarItems = <BottomNavigationBarItem>[
+    var bottomItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
         icon: const Icon(Icons.add_comment),
         label: "Comments",
@@ -55,7 +55,7 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("titlele"),
+        title: Text("title ${_currentIndex.value}"),
       ),
       body: Center(
         child: PageTransitionSwitcher(
@@ -67,16 +67,14 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
             );
           },
           child: _NavigationDestinationView(
-            // Adding [UniqueKey] to make sure the widget rebuilds when transitioning.
             key: UniqueKey(),
-            item: bottomNavigationBarItems[_currentIndex.value],
+            item: bottomItems[_currentIndex.value],
           ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        // showUnselectedLabels:
-        //     widget.type == BottomNavigationDemoType.withLabels,
-        items: bottomNavigationBarItems,
+        showUnselectedLabels: false, // trueならテキスト常時表示、falseなら選択時のみ
+        items: bottomItems,
         currentIndex: _currentIndex.value,
         type: BottomNavigationBarType.fixed,
         selectedFontSize: textTheme.caption!.fontSize!,
@@ -95,10 +93,8 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
 }
 
 class _NavigationDestinationView extends StatelessWidget {
-  const _NavigationDestinationView({
-    Key? key,
-    required this.item,
-  }) : super(key: key);
+  const _NavigationDestinationView({Key? key, required this.item})
+      : super(key: key);
 
   final BottomNavigationBarItem item;
 
