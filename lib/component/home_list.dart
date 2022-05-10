@@ -4,6 +4,7 @@ import '../screen/sample_page.dart';
 import '../screen/test_list_page.dart';
 import '../screen/typography_page.dart';
 import '../screen/color_palette_page.dart';
+import '../screen/segue_animation_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -22,6 +23,12 @@ Widget homeList(BuildContext context) {
     homeListItem("color palettes", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => ColorPalettePage()));
+    }),
+    homeListItem("segue animation", () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => OpenContainerTransformDemo()));
     }),
   ]);
 }

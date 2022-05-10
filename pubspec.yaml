@@ -17,6 +17,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.9
+  animations: ^2.0.2
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +26,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/
