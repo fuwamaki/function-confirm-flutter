@@ -1,5 +1,10 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'bottom_tab/bottom_tab_a_page.dart';
+import 'bottom_tab/bottom_tab_b_page.dart';
+import 'bottom_tab/bottom_tab_c_page.dart';
+import 'bottom_tab/bottom_tab_d_page.dart';
+import 'bottom_tab/bottom_tab_e_page.dart';
 
 class BottomTabPage extends StatefulWidget {
   const BottomTabPage({Key? key}) : super(key: key);
@@ -68,6 +73,7 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
           },
           child: _NavigationDestinationView(
             key: UniqueKey(),
+            index: _currentIndex.value,
             item: bottomItems[_currentIndex.value],
           ),
         ),
@@ -93,38 +99,26 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
 }
 
 class _NavigationDestinationView extends StatelessWidget {
-  const _NavigationDestinationView({Key? key, required this.item})
+  const _NavigationDestinationView(
+      {Key? key, required this.index, required this.item})
       : super(key: key);
 
+  final int index;
   final BottomNavigationBarItem item;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ExcludeSemantics(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  'assets/placeholder_image.png',
-                ),
-              ),
-            ),
-          ),
-        ),
-        Center(
-          child: IconTheme(
-            data: const IconThemeData(
-              color: Colors.white,
-              size: 80,
-            ),
-            child: Semantics(child: item.icon),
-          ),
-        ),
-      ],
-    );
+    switch (index) {
+      case 0:
+        return BottomTabAPage();
+      case 1:
+        return BottomTabBPage();
+      case 2:
+        return BottomTabCPage();
+      case 3:
+        return BottomTabDPage();
+      default:
+        return BottomTabEPage();
+    }
   }
 }
