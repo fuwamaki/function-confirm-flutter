@@ -28,15 +28,6 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
     super.dispose();
   }
 
-  // String _title(BuildContext context) {
-  //   switch (widget.type) {
-  //     case BottomNavigationDemoType.withLabels:
-  //       return localizations.demoBottomNavigationPersistentLabels;
-  //     case BottomNavigationDemoType.withoutLabels:
-  //       return localizations.demoBottomNavigationSelectedLabel;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -64,14 +55,6 @@ class _BottomNavigationDemoState extends State<BottomNavigationDemo>
         label: "Camera",
       ),
     ];
-
-    // if (widget.type == BottomNavigationDemoType.withLabels) {
-    //   bottomNavigationBarItems = bottomNavigationBarItems.sublist(
-    //       0, bottomNavigationBarItems.length - 2);
-    //   _currentIndex.value = _currentIndex.value
-    //       .clamp(0, bottomNavigationBarItems.length - 1)
-    //       .toInt();
-    // }
 
     return Scaffold(
       appBar: AppBar(
@@ -145,10 +128,7 @@ class _NavigationDestinationView extends StatelessWidget {
               color: Colors.white,
               size: 80,
             ),
-            child: Semantics(
-              label: "ttt",
-              child: item.icon,
-            ),
+            child: Semantics(child: item.icon),
           ),
         ),
       ],
