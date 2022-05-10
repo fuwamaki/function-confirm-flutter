@@ -1,0 +1,24 @@
+{
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+      "description": "The conventional newborn programmer greeting"
+    },
+    "testListTitle": "test list",
+    "@testListTitle": {
+      "description": "test list"
+    },
+    "testListItemTitle": "Item{NUMBER}",
+    "@testListItemTitle": {
+      "description": "Item {NUMBER}",
+      "placeholders": {
+          "NUMBER": {
+              "example": "1",
+              "description": "number"
+          }
+      }
+    },
+    "testListSubText": "sub text",
+    "@testListSubText": {
+      "description": "sub text"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "helloWorld": "ハローワールド",
+    "testListTitle": "テストリスト",
+    "testListItemTitle": "項目{NUMBER}",
+    "testListSubText": "サブテキスト"
+}
