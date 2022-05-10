@@ -1,17 +1,14 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavigationDemo extends StatefulWidget {
-  const BottomNavigationDemo({
-    Key? key,
-  }) : super(key: key);
+class BottomTabPage extends StatefulWidget {
+  const BottomTabPage({Key? key}) : super(key: key);
 
   @override
-  State<BottomNavigationDemo> createState() => _BottomNavigationDemoState();
+  State<BottomTabPage> createState() => _BottomTabPageState();
 }
 
-class _BottomNavigationDemoState extends State<BottomNavigationDemo>
-    with RestorationMixin {
+class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
   final RestorableInt _currentIndex = RestorableInt(0);
 
   @override

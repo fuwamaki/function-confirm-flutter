@@ -35,8 +35,8 @@ Widget homeList(BuildContext context) {
           MaterialPageRoute(builder: (context) => CupertinoTabBarDemo()));
     }),
     homeListItem("bottom tab", () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => BottomNavigationDemo()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BottomTabPage()));
     }),
   ]);
 }
