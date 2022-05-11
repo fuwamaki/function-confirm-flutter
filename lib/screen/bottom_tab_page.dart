@@ -30,6 +30,21 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
     super.dispose();
   }
 
+  String _title(int index) {
+    switch (index) {
+      case 0:
+        return "Button";
+      case 1:
+        return "Card";
+      case 2:
+        return "Chip,Menu";
+      case 3:
+        return "Alert,Indicator";
+      default:
+        return "TextField";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -60,7 +75,7 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("title ${_currentIndex.value}"),
+        title: Text(_title(_currentIndex.value)),
       ),
       body: Center(
         child: PageTransitionSwitcher(
