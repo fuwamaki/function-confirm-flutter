@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class BottomTabCPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final localizations = AppLocalizations.of(context)!;
     return Scaffold(
       body: Scrollbar(
-        child: ListView(
-          restorationId: 'list_demo_list_view',
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          children: [
-            for (int index = 1; index < 10; index++)
-              ListTile(
-                leading: ExcludeSemantics(
-                  child: CircleAvatar(child: Text('$index')),
+          child: Container(
+        margin: EdgeInsets.only(top: 24.0),
+        child: Center(
+          child: Column(
+            children: [
+              ActionChip(
+                onPressed: () {},
+                avatar: const Icon(
+                  Icons.brightness_5,
+                  color: Colors.black54,
                 ),
-                title: Text(localizations.testListItemTitle(index)),
-                subtitle: Text(localizations.testListSubText),
-                onTap: () {
-                  Fluttertoast.showToast(msg: "tap $index");
-                },
+                label: Text("ライトを設定"),
               ),
-          ],
+            ],
+          ),
         ),
-      ),
+      )),
     );
   }
 }
