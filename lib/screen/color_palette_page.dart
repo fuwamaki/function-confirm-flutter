@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-const double kColorItemHeight = 48;
-
 class _Palette {
   _Palette({
     required this.name,
@@ -13,8 +11,6 @@ class _Palette {
   final String name;
   final MaterialColor primary;
   final MaterialAccentColor? accent;
-
-  // Titles for indices > threshold are white, otherwise black.
   final int threshold;
 }
 
@@ -152,7 +148,7 @@ class _ColorItem extends StatelessWidget {
     return Semantics(
       container: true,
       child: Container(
-        height: kColorItemHeight,
+        height: 48.0,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         color: color,
         child: Row(
@@ -200,7 +196,7 @@ class _PaletteTabView extends StatelessWidget {
     );
     return Scrollbar(
       child: ListView(
-        itemExtent: kColorItemHeight,
+        itemExtent: 48.0,
         children: [
           for (final key in primaryKeys)
             DefaultTextStyle(
