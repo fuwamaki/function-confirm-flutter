@@ -7,6 +7,9 @@ class BottomTabCPage extends StatefulWidget {
 
 class _BottomTabCState extends State<BottomTabCPage> with RestorationMixin {
   final RestorableIntN _indexSelected = RestorableIntN(null);
+  final RestorableBool _isSelectedElevator = RestorableBool(false);
+  final RestorableBool _isSelectedWasher = RestorableBool(false);
+  final RestorableBool _isSelectedFireplace = RestorableBool(false);
 
   @override
   String get restorationId => 'choice_chip_demo';
@@ -14,16 +17,52 @@ class _BottomTabCState extends State<BottomTabCPage> with RestorationMixin {
   @override
   void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
     registerForRestoration(_indexSelected, 'choice_chip');
+    registerForRestoration(_isSelectedElevator, 'selected_elevator');
+    registerForRestoration(_isSelectedWasher, 'selected_washer');
+    registerForRestoration(_isSelectedFireplace, 'selected_fireplace');
   }
 
   @override
   void dispose() {
     _indexSelected.dispose();
+    _isSelectedElevator.dispose();
+    _isSelectedWasher.dispose();
+    _isSelectedFireplace.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final filterChips = [
+      FilterChip(
+        label: Text("Elevator"),
+        selected: _isSelectedElevator.value,
+        onSelected: (value) {
+          setState(() {
+            _isSelectedElevator.value = !_isSelectedElevator.value;
+          });
+        },
+      ),
+      FilterChip(
+        label: Text("Washer"),
+        selected: _isSelectedWasher.value,
+        onSelected: (value) {
+          setState(() {
+            _isSelectedWasher.value = !_isSelectedWasher.value;
+          });
+        },
+      ),
+      FilterChip(
+        label: Text("Fireplace"),
+        selected: _isSelectedFireplace.value,
+        onSelected: (value) {
+          setState(() {
+            _isSelectedFireplace.value = !_isSelectedFireplace.value;
+          });
+        },
+      ),
+    ];
+
     return Scaffold(
       body: Scrollbar(
           child: Container(
@@ -72,6 +111,28 @@ class _BottomTabCState extends State<BottomTabCPage> with RestorationMixin {
                     },
                   ),
                 ],
+              ),
+              SizedBox(height: 12),
+              Wrap(
+                children: [
+                  for (final chip in filterChips)
+                    Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: chip,
+                    )
+                ],
+              ),
+              SizedBox(height: 12),
+              InputChip(
+                onPressed: () {},
+                onDeleted: () {},
+                avatar: const Icon(
+                  Icons.directions_bike,
+                  size: 20,
+                  color: Colors.black54,
+                ),
+                deleteIconColor: Colors.black54,
+                label: Text("Bike"),
               ),
             ],
           ),
