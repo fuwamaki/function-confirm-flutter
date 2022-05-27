@@ -10,6 +10,7 @@ import '../screen/bottom_tab_page.dart';
 import '../screen/dialog_page.dart';
 import '../screen/snackbar_page.dart';
 import '../screen/divider1_page.dart';
+import '../screen/divider2_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -52,6 +53,10 @@ Widget homeList(BuildContext context) {
     homeListItem("divider horizontal", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Divider1Page()));
+    }),
+    homeListItem("divider vertical", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Divider2Page()));
     }),
   ]);
 }
