@@ -37,9 +37,9 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
       case 1:
         return "Card";
       case 2:
-        return "Chip,Menu";
+        return "Chip";
       case 3:
-        return "Alert,Indicator";
+        return "Empty";
       default:
         return "TextField";
     }
