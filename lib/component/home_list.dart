@@ -15,6 +15,7 @@ import '../screen/grid_page.dart';
 import '../screen/menu_page.dart';
 import '../screen/menu_simple_page.dart';
 import '../screen/menu_stateful_page.dart';
+import '../screen/indicator_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -77,6 +78,10 @@ Widget homeList(BuildContext context) {
     homeListItem("menu check list", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MenuStatefulPage()));
+    }),
+    homeListItem("indicator", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => IndicatorPage()));
     }),
   ]);
 }
