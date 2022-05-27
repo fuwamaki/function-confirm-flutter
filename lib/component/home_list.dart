@@ -8,6 +8,7 @@ import '../screen/segue_animation_page.dart';
 import '../screen/cupertino_tab_page.dart';
 import '../screen/bottom_tab_page.dart';
 import '../screen/dialog_page.dart';
+import '../screen/snackbar_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -42,6 +43,10 @@ Widget homeList(BuildContext context) {
     homeListItem("dialog", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => DialogPage()));
+    }),
+    homeListItem("snackbar", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => SnackbarPage()));
     }),
   ]);
 }
