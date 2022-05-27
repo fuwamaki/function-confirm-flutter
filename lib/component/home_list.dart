@@ -16,6 +16,7 @@ import '../screen/menu_page.dart';
 import '../screen/menu_simple_page.dart';
 import '../screen/menu_stateful_page.dart';
 import '../screen/indicator_page.dart';
+import '../screen/date_selector_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -82,6 +83,27 @@ Widget homeList(BuildContext context) {
     homeListItem("indicator", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => IndicatorPage()));
+    }),
+    homeListItem("date selector", () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  DateSelectorPage(type: PickerDemoType.date)));
+    }),
+    homeListItem("time selector", () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  DateSelectorPage(type: PickerDemoType.time)));
+    }),
+    homeListItem("range selector", () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  DateSelectorPage(type: PickerDemoType.range)));
     }),
   ]);
 }
