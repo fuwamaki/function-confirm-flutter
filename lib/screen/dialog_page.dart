@@ -165,7 +165,6 @@ class _DialogPageState extends State<DialogPage> with RestorationMixin {
           settings: settings,
           builder: (context) => Scaffold(
             appBar: AppBar(
-              automaticallyImplyLeading: false,
               title: Text("ダイアログ"),
             ),
             body: Center(
