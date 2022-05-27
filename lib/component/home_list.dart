@@ -9,6 +9,7 @@ import '../screen/cupertino_tab_page.dart';
 import '../screen/bottom_tab_page.dart';
 import '../screen/dialog_page.dart';
 import '../screen/snackbar_page.dart';
+import '../screen/divider1_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -47,6 +48,10 @@ Widget homeList(BuildContext context) {
     homeListItem("snackbar", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => SnackbarPage()));
+    }),
+    homeListItem("divider horizontal", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Divider1Page()));
     }),
   ]);
 }
