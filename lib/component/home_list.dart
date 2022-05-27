@@ -17,6 +17,7 @@ import '../screen/menu_simple_page.dart';
 import '../screen/menu_stateful_page.dart';
 import '../screen/indicator_page.dart';
 import '../screen/date_selector_page.dart';
+import '../screen/select_control_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -104,6 +105,10 @@ Widget homeList(BuildContext context) {
           MaterialPageRoute(
               builder: (context) =>
                   DateSelectorPage(type: PickerDemoType.range)));
+    }),
+    homeListItem("select control", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SelectControlPage()));
     }),
   ]);
 }
