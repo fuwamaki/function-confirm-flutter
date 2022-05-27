@@ -13,6 +13,7 @@ import '../screen/divider1_page.dart';
 import '../screen/divider2_page.dart';
 import '../screen/grid_page.dart';
 import '../screen/menu_page.dart';
+import '../screen/menu_simple_page.dart';
 import '../screen/menu_stateful_page.dart';
 
 Widget homeList(BuildContext context) {
@@ -68,6 +69,10 @@ Widget homeList(BuildContext context) {
     homeListItem("menu", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MenuPage()));
+    }),
+    homeListItem("menu simple", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MenuSimplePage()));
     }),
     homeListItem("menu check list", () {
       Navigator.push(
