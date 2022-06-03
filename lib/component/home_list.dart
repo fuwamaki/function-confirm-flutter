@@ -18,6 +18,7 @@ import '../screen/menu_stateful_page.dart';
 import '../screen/indicator_page.dart';
 import '../screen/date_selector_page.dart';
 import '../screen/select_control_page.dart';
+import '../screen/github_repo_list_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -109,6 +110,10 @@ Widget homeList(BuildContext context) {
     homeListItem("select control", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => SelectControlPage()));
+    }),
+    homeListItem("Github RepoList", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => GithubRepoListPage()));
     }),
   ]);
 }
