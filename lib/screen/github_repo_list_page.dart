@@ -50,7 +50,7 @@ class _State extends State<GithubRepoListPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Indicator"),
+        title: Text("Github Repository一覧"),
       ),
       body: Center(
         child: SingleChildScrollView(
