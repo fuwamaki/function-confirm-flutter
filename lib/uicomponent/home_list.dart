@@ -111,7 +111,7 @@ Widget homeList(BuildContext context) {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => SelectControlPage()));
     }),
-    homeListItem("Github RepoList", () {
+    homeListItem("github repo list", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => GithubRepoListPage()));
     }),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:function_confirm/entity/github_response.dart';
+import 'package:function_confirm/repository/github_repository.dart';
+import '../entity/github_repo.dart';
 
 class GithubRepoListPage extends StatefulWidget {
   const GithubRepoListPage({Key? key}) : super(key: key);
@@ -11,6 +14,8 @@ class _State extends State<GithubRepoListPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
+
+  GithubResponse? _response;
 
   @override
   void initState() {
@@ -40,6 +45,54 @@ class _State extends State<GithubRepoListPage>
     super.dispose();
   }
 
+  Widget _buildInput() {
+    return Container(
+        margin: EdgeInsets.all(16.0),
+        child: TextField(
+          decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search),
+              hintText: 'Please enter a search repository name.',
+              labelText: "search"),
+          onChanged: (inputString) {
+            if (inputString.length >= 5) {
+              GithubRepository().fetch().then((response) {
+                setState(() {
+                  _response = response;
+                });
+              });
+            }
+          },
+        ));
+  }
+
+  Widget _buildRepositoryList() {
+    return ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        final githubRepo = _response!.items[index];
+        return _buildCard(githubRepo);
+      },
+      itemCount: _response?.items.length,
+    );
+  }
+
+  Widget _buildCard(GithubRepo githubRepo) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              githubRepo.fullName,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildIndicators(BuildContext context, Widget? child) {
     return Column(
       children: [const CircularProgressIndicator()],
@@ -52,16 +105,27 @@ class _State extends State<GithubRepoListPage>
       appBar: AppBar(
         title: Text("Github Repository一覧"),
       ),
+      // body: Center(
+      //   child: Container(
+      //       child: Stack(children: [
+      //     Column(
+      //       children: [_buildInput(), _buildRepositoryList()],
+      //     ),
+      //     Container(
+      //       padding: const EdgeInsets.all(8),
+      //       child: AnimatedBuilder(
+      //         animation: _animation,
+      //         builder: _buildIndicators,
+      //       ),
+      //     )
+      //   ])),
+      // ),
       body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            child: AnimatedBuilder(
-              animation: _animation,
-              builder: _buildIndicators,
-            ),
+        child: Stack(children: [
+          Column(
+            children: [_buildInput()],
           ),
-        ),
+        ]),
       ),
     );
   }
