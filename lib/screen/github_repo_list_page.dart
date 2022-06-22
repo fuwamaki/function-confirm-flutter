@@ -71,58 +71,60 @@ class _State extends State<GithubRepoListPage>
   }
 
   Widget _buildRepositoryList() {
-    return Scrollbar(
-        child: ListView(
-      restorationId: 'repository_list_view',
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      children: [
-        for (int index = 1; index < (_response?.items.length ?? 1); index++)
-          ListTile(
-            leading: ExcludeSemantics(
-              child: CircleAvatar(child: Text('$index')),
-            ),
-            title: Text(_response!.items[index].owner.avatarUrl),
-            onTap: () {
-              print("tap $index");
-              print(_response!.items[index].fullName);
-            },
-          ),
-      ],
+    // return Scrollbar(
+    //     child: ListView(
+    //   restorationId: 'repository_list_view',
+    //   shrinkWrap: true,
+    //   physics: NeverScrollableScrollPhysics(),
+    //   padding: const EdgeInsets.symmetric(vertical: 8),
+    //   children: [
+    //     for (int index = 1; index < (_response?.items.length ?? 1); index++)
+    //       ListTile(
+    //         leading: ExcludeSemantics(
+    //           child: CircleAvatar(child: Text('$index')),
+    //         ),
+    //         title: Text(_response!.items[index].owner.avatarUrl),
+    //         onTap: () {
+    //           print("tap $index");
+    //           print(_response!.items[index].fullName);
+    //         },
+    //       ),
+    //   ],
+    // ));
+
+    return Expanded(
+        child: ListView.builder(
+      itemBuilder: (BuildContext context, int index) {
+        final githubRepo = _response!.items[index];
+        return _buildCard(githubRepo);
+      },
+      itemCount: _response?.items.length ?? 0,
     ));
-    // return ListView.builder(
-    //   itemBuilder: (BuildContext context, int index) {
-    //     final githubRepo = _response!.items[index];
-    //     return _buildCard(githubRepo);
-    //   },
-    //   itemCount: _response?.items.length ?? 0,
-    // );
   }
 
   Widget _buildCard(GithubRepo githubRepo) {
-    return Card(
-      child: Text(
-        githubRepo.fullName,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-      ),
-    );
-
     // return Card(
-    //   margin: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: <Widget>[
-    //       Padding(
-    //         padding: EdgeInsets.all(12.0),
-    //         child: Text(
-    //           githubRepo.fullName,
-    //           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-    //         ),
-    //       ),
-    //     ],
+    //   child: Text(
+    //     githubRepo.fullName,
+    //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
     //   ),
     // );
+
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Text(
+              githubRepo.fullName,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildIndicators(BuildContext context, Widget? child) {
@@ -139,7 +141,7 @@ class _State extends State<GithubRepoListPage>
         ),
         body: Stack(
           children: [
-            SingleChildScrollView(
+            Expanded(
                 child: Column(
               children: [_buildInput(), _buildRepositoryList()],
             )),
