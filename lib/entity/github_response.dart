@@ -5,7 +5,10 @@ class GithubResponse {
 
   GithubResponse(this.items);
 
-  GithubResponse.fromJson(Map<String, dynamic> json) : items = json['items'];
+  GithubResponse.fromJson(Map<String, dynamic> json)
+      : items = json['items']
+            .map<GithubRepo>((i) => GithubRepo.fromJson(i))
+            .toList();
 
   Map<String, dynamic> toJson() => {'items': items};
 }
