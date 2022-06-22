@@ -129,31 +129,26 @@ class _State extends State<GithubRepoListPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Github Repository一覧"),
-      ),
-      // body: Center(
-      //   child: Container(
-      //       child: Stack(children: [
-      //     Column(
-      //       children: [_buildInput(), _buildRepositoryList()],
-      //     ),
-      //     Container(
-      //       padding: const EdgeInsets.all(8),
-      //       child: AnimatedBuilder(
-      //         animation: _animation,
-      //         builder: _buildIndicators,
-      //       ),
-      //     )
-      //   ])),
-      // ),
-      body: Center(
-        child: Stack(children: [
-          Column(
-            children: [_buildInput(), _buildRepositoryList()],
-          ),
-        ]),
-      ),
-    );
+        appBar: AppBar(
+          title: Text("Github Repository一覧"),
+        ),
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+                child: Column(
+              children: [_buildInput(), _buildRepositoryList()],
+            )),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                    child: AnimatedBuilder(
+                  animation: _animation,
+                  builder: _buildIndicators,
+                ))
+              ],
+            )
+          ],
+        ));
   }
 }
