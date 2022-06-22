@@ -71,27 +71,6 @@ class _State extends State<GithubRepoListPage>
   }
 
   Widget _buildRepositoryList() {
-    // return Scrollbar(
-    //     child: ListView(
-    //   restorationId: 'repository_list_view',
-    //   shrinkWrap: true,
-    //   physics: NeverScrollableScrollPhysics(),
-    //   padding: const EdgeInsets.symmetric(vertical: 8),
-    //   children: [
-    //     for (int index = 1; index < (_response?.items.length ?? 1); index++)
-    //       ListTile(
-    //         leading: ExcludeSemantics(
-    //           child: CircleAvatar(child: Text('$index')),
-    //         ),
-    //         title: Text(_response!.items[index].owner.avatarUrl),
-    //         onTap: () {
-    //           print("tap $index");
-    //           print(_response!.items[index].fullName);
-    //         },
-    //       ),
-    //   ],
-    // ));
-
     return Expanded(
         child: ListView.builder(
       itemBuilder: (BuildContext context, int index) {
