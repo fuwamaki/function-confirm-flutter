@@ -16,6 +16,7 @@ class _State extends State<GithubRepoListPage>
   late Animation<double> _animation;
 
   GithubResponse? _response;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -55,8 +56,12 @@ class _State extends State<GithubRepoListPage>
               labelText: "search"),
           onChanged: (inputString) {
             if (inputString.length >= 5) {
+              setState(() {
+                _isLoading = true;
+              });
               GithubRepository().fetch().then((response) {
                 setState(() {
+                  _isLoading = false;
                   _response = response;
                 });
               });
@@ -138,16 +143,18 @@ class _State extends State<GithubRepoListPage>
                 child: Column(
               children: [_buildInput(), _buildRepositoryList()],
             )),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                    child: AnimatedBuilder(
-                  animation: _animation,
-                  builder: _buildIndicators,
-                ))
-              ],
-            )
+            _isLoading
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                          child: AnimatedBuilder(
+                        animation: _animation,
+                        builder: _buildIndicators,
+                      ))
+                    ],
+                  )
+                : Container()
           ],
         ));
   }
