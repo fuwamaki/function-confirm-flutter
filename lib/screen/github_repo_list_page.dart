@@ -103,28 +103,28 @@ class _State extends State<GithubRepoListPage>
   }
 
   Widget _buildCard(GithubRepo githubRepo) {
-    // return Card(
-    //   child: Text(
-    //     githubRepo.fullName,
-    //     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-    //   ),
-    // );
-
     return Card(
-      margin: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(12.0),
-            child: Text(
-              githubRepo.fullName,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+        margin: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+        child: Row(
+          children: [
+            Container(
+                padding: EdgeInsets.all(4.0),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.network(
+                      githubRepo.owner.avatarUrl,
+                      width: 32,
+                      height: 32,
+                    ))),
+            Padding(
+              padding: EdgeInsets.all(12.0),
+              child: Text(
+                githubRepo.fullName,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+              ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        ));
   }
 
   Widget _buildIndicators(BuildContext context, Widget? child) {
