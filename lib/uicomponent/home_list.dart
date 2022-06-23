@@ -19,6 +19,7 @@ import '../screen/indicator_page.dart';
 import '../screen/date_selector_page.dart';
 import '../screen/select_control_page.dart';
 import '../screen/github_repo_list_page.dart';
+import '../screen/access_localhost_page.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -114,6 +115,10 @@ Widget homeList(BuildContext context) {
     homeListItem("github repo list", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => GithubRepoListPage()));
+    }),
+    homeListItem("access localhost", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => AccessLocalhostPage()));
     }),
   ]);
 }
