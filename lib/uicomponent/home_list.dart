@@ -8,6 +8,7 @@ import '../screen/color_palette_page.dart';
 import '../screen/segue_animation_page.dart';
 import '../screen/cupertino_tab_page.dart';
 import '../screen/bottom_tab_page.dart';
+import '../screen/pager_page.dart';
 import '../screen/dialog_page.dart';
 import '../screen/snackbar_page.dart';
 import '../screen/divider1_page.dart';
@@ -55,6 +56,10 @@ Widget homeList(BuildContext context) {
     homeListItem("bottom tab", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => BottomTabPage()));
+    }),
+    homeListItem("pager", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => PagerPage()));
     }),
     homeListItem("dialog", () {
       Navigator.push(
