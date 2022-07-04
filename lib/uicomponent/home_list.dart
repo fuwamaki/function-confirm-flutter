@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'home_list_item.dart';
 import '../screen/sample_page.dart';
+import '../screen/bloc_sample_page.dart';
 import '../screen/test_list_page.dart';
 import '../screen/typography_page.dart';
 import '../screen/color_palette_page.dart';
@@ -26,6 +27,10 @@ Widget homeList(BuildContext context) {
     homeListItem("sample", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => SamplePage()));
+    }),
+    homeListItem("bloc sample", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BlocSamplePage()));
     }),
     homeListItem("test list", () {
       Navigator.push(
