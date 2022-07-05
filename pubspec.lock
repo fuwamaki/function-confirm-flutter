@@ -7,7 +7,7 @@ packages:
       name: animations
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   async:
     dependency: transitive
     description:
@@ -63,7 +63,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -228,7 +228,7 @@ packages:
       name: typed_data
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.3.1"
   vector_math:
     dependency: transitive
     description:
@@ -238,4 +238,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.17.0-0 <3.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=3.0.0"
