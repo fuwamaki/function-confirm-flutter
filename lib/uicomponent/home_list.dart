@@ -3,6 +3,8 @@ import 'home_list_item.dart';
 import '../screen/sample_page.dart';
 import '../screen/bloc_sample_page.dart';
 import '../screen/test_list_page.dart';
+import '../screen/test_list2_page.dart';
+import '../screen/test_list3_page.dart';
 import '../screen/typography_page.dart';
 import '../screen/color_palette_page.dart';
 import '../screen/segue_animation_page.dart';
@@ -36,6 +38,14 @@ Widget homeList(BuildContext context) {
     homeListItem("test list", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => TestListPage()));
+    }),
+    homeListItem("test list2", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => TestList2Page()));
+    }),
+    homeListItem("test list3", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => TestList3Page()));
     }),
     homeListItem("typography", () {
       Navigator.push(
