@@ -8,7 +8,7 @@ class TestListPage extends StatelessWidget {
     final localizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(localizations.testListTitle),
+        title: Text("リスト"),
       ),
       body: Scrollbar(
         child: ListView(
