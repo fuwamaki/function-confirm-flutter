@@ -52,7 +52,25 @@ class _BottomTabPageState extends State<BottomTabPage> with RestorationMixin {
 
     var bottomItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
-        icon: const Icon(Icons.add_comment),
+        icon: Stack(
+          children: [
+            const Icon(Icons.add_comment),
+            Positioned(
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.red, //色
+                  shape: BoxShape.circle, //丸
+                ),
+                constraints: BoxConstraints(
+                  minHeight: 12, //最小の高さ
+                  minWidth: 12, //最小の幅
+                ),
+                alignment: Alignment.center,
+              ),
+            ),
+          ],
+        ),
         label: "Comments",
       ),
       BottomNavigationBarItem(
