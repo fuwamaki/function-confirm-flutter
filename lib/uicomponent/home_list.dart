@@ -36,6 +36,10 @@ Widget homeList(BuildContext context) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => BlocSamplePage()));
     }),
+    homeListItem("github repo list", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => GithubRepoListPage()));
+    }),
     homeListItem("test list", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => TestListPage()));
@@ -136,10 +140,6 @@ Widget homeList(BuildContext context) {
     homeListItem("select control", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => SelectControlPage()));
-    }),
-    homeListItem("github repo list", () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => GithubRepoListPage()));
     }),
     homeListItem("access localhost", () {
       Navigator.push(context,

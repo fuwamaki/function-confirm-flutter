@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:function_confirm/entity/github_response.dart';
-import 'package:function_confirm/repository/github_repository.dart';
-import '../entity/github_repo.dart';
+import '../entity/github_response.dart';
+import '../repository/github_repository.dart';
+import '../uicomponent/github_repo_input.dart';
+import '../uicomponent/github_repo_list.dart';
 
 class GithubRepoListPage extends StatefulWidget {
   const GithubRepoListPage({Key? key}) : super(key: key);
@@ -46,64 +47,16 @@ class _State extends State<GithubRepoListPage>
     super.dispose();
   }
 
-  Widget _buildInput() {
-    return Container(
-        margin: EdgeInsets.all(16.0),
-        child: TextField(
-          decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
-              hintText: 'Please enter a search repository name.',
-              labelText: "search"),
-          onChanged: (inputString) {
-            if (inputString.length >= 5) {
-              setState(() {
-                _isLoading = true;
-              });
-              GithubRepository().fetch().then((response) {
-                setState(() {
-                  _isLoading = false;
-                  _response = response;
-                });
-              });
-            }
-          },
-        ));
-  }
-
-  Widget _buildRepositoryList() {
-    return Expanded(
-        child: ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        final githubRepo = _response!.items[index];
-        return _buildCard(githubRepo);
-      },
-      itemCount: _response?.items.length ?? 0,
-    ));
-  }
-
-  Widget _buildCard(GithubRepo githubRepo) {
-    return Card(
-        margin: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-        child: Row(
-          children: [
-            Container(
-                padding: EdgeInsets.all(4.0),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: Image.network(
-                      githubRepo.owner.avatarUrl,
-                      width: 32,
-                      height: 32,
-                    ))),
-            Padding(
-              padding: EdgeInsets.all(12.0),
-              child: Text(
-                githubRepo.fullName,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
-              ),
-            ),
-          ],
-        ));
+  void load(String text) {
+    setState(() {
+      _isLoading = true;
+    });
+    GithubRepository().fetch(text).then((response) {
+      setState(() {
+        _isLoading = false;
+        _response = response;
+      });
+    });
   }
 
   Widget _buildIndicators(BuildContext context, Widget? child) {
@@ -116,13 +69,20 @@ class _State extends State<GithubRepoListPage>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Github Repository一覧"),
+          title: Text("リスト"),
         ),
         body: Stack(
           children: [
             Expanded(
                 child: Column(
-              children: [_buildInput(), _buildRepositoryList()],
+              children: [
+                githubRepoInput(
+                  (text) {
+                    load(text);
+                  },
+                ),
+                githubRepoList(_response)
+              ],
             )),
             _isLoading
                 ? Column(
