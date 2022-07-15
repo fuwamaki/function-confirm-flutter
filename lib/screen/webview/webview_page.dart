@@ -49,6 +49,34 @@ class _WebViewPageState extends State<WebViewPage> {
               },
             ),
           ),
+          Container(
+              color: Colors.lightBlue,
+              child: SafeArea(
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_back,
+                      ),
+                      color: Colors.white,
+                      onPressed: () async {
+                        final controller = await _controller.future;
+                        controller.goBack();
+                      },
+                    ),
+                    IconButton(
+                      icon: const Icon(
+                        Icons.arrow_forward,
+                      ),
+                      color: Colors.white,
+                      onPressed: () async {
+                        final controller = await _controller.future;
+                        controller.goForward();
+                      },
+                    ),
+                  ],
+                ),
+              ))
         ],
       ),
     );
