@@ -17,16 +17,6 @@ class _State extends State<GithubRepoListPage>
   GithubResponse? _response;
   bool _isLoading = false;
 
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   void load(String text) {
     setState(() {
       _isLoading = true;
@@ -47,8 +37,7 @@ class _State extends State<GithubRepoListPage>
         ),
         body: Stack(
           children: [
-            Expanded(
-                child: Column(
+            Column(
               children: [
                 githubRepoInput(
                   (text) {
@@ -57,7 +46,7 @@ class _State extends State<GithubRepoListPage>
                 ),
                 githubRepoList(_response)
               ],
-            )),
+            ),
             _isLoading ? LoadingView() : Container()
           ],
         ));

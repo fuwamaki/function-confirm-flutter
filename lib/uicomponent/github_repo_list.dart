@@ -5,7 +5,8 @@ import '../screen/webview/webview_page.dart';
 
 Widget githubRepoList(GithubResponse? response) {
   return Expanded(
-      child: ListView.builder(
+      child: Scrollbar(
+          child: ListView.builder(
     itemBuilder: (BuildContext context, int index) {
       final githubRepo = response!.items[index];
       return ListTile(
@@ -38,7 +39,7 @@ Widget githubRepoList(GithubResponse? response) {
       // return _buildCard(githubRepo);
     },
     itemCount: response?.items.length ?? 0,
-  ));
+  )));
 }
 
 // Widget _buildCard(GithubRepo githubRepo) {
