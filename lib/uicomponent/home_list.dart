@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'home_list_item.dart';
-import '../screen/sample_page.dart';
-import '../screen/bloc_sample_page.dart';
-import '../screen/test_list_page.dart';
-import '../screen/test_list2_page.dart';
-import '../screen/test_list3_page.dart';
-import '../screen/test_list4_page.dart';
-import '../screen/typography_page.dart';
-import '../screen/color_palette_page.dart';
-import '../screen/segue_animation_page.dart';
-import '../screen/cupertino_tab_page.dart';
-import '../screen/bottom_tab_page.dart';
-import '../screen/pager_page.dart';
-import '../screen/dialog_page.dart';
-import '../screen/snackbar_page.dart';
-import '../screen/divider1_page.dart';
-import '../screen/divider2_page.dart';
-import '../screen/grid_page.dart';
-import '../screen/menu_page.dart';
-import '../screen/menu_simple_page.dart';
-import '../screen/menu_stateful_page.dart';
-import '../screen/indicator_page.dart';
-import '../screen/date_selector_page.dart';
-import '../screen/select_control_page.dart';
-import '../screen/github_repo_list_page.dart';
-import '../screen/access_localhost_page.dart';
+import 'package:function_confirm/screen/sample_page.dart';
+import 'package:function_confirm/screen/bloc_sample_page.dart';
+import 'package:function_confirm/screen/bloc_github/bloc_github_page.dart';
+import 'package:function_confirm/screen/test_list_page.dart';
+import 'package:function_confirm/screen/test_list2_page.dart';
+import 'package:function_confirm/screen/test_list3_page.dart';
+import 'package:function_confirm/screen/test_list4_page.dart';
+import 'package:function_confirm/screen/typography_page.dart';
+import 'package:function_confirm/screen/color_palette_page.dart';
+import 'package:function_confirm/screen/segue_animation_page.dart';
+import 'package:function_confirm/screen/cupertino_tab_page.dart';
+import 'package:function_confirm/screen/bottom_tab_page.dart';
+import 'package:function_confirm/screen/pager_page.dart';
+import 'package:function_confirm/screen/dialog_page.dart';
+import 'package:function_confirm/screen/snackbar_page.dart';
+import 'package:function_confirm/screen/divider1_page.dart';
+import 'package:function_confirm/screen/divider2_page.dart';
+import 'package:function_confirm/screen/grid_page.dart';
+import 'package:function_confirm/screen/menu_page.dart';
+import 'package:function_confirm/screen/menu_simple_page.dart';
+import 'package:function_confirm/screen/menu_stateful_page.dart';
+import 'package:function_confirm/screen/indicator_page.dart';
+import 'package:function_confirm/screen/date_selector_page.dart';
+import 'package:function_confirm/screen/select_control_page.dart';
+import 'package:function_confirm/screen/github_repo_list_page.dart';
+import 'package:function_confirm/screen/access_localhost_page.dart';
+import 'package:function_confirm/uicomponent/home_list_item.dart';
 
 Widget homeList(BuildContext context) {
   return ListView(children: [
@@ -39,6 +40,10 @@ Widget homeList(BuildContext context) {
     homeListItem("github repo list", () {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => GithubRepoListPage()));
+    }),
+    homeListItem("bloc github repo list", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => BlocGithubPage()));
     }),
     homeListItem("test list", () {
       Navigator.push(

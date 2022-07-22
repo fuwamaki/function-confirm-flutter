@@ -14,13 +14,14 @@ dependencies:
     sdk: flutter
 
   intl: ^0.17.0
-
-  flutter_bloc: ^8.0.1
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.9
   animations: ^2.0.2
   http: ^0.13.4
   webview_flutter: ^3.0.4
+
+  flutter_bloc: ^8.0.1
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
