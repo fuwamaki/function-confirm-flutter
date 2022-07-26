@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:function_confirm/screen/logic_page.dart';
 import 'package:function_confirm/screen/sample_page.dart';
 import 'package:function_confirm/screen/bloc_sample_page.dart';
 import 'package:function_confirm/screen/bloc_github/bloc_github_page.dart';
@@ -32,6 +33,10 @@ Widget homeList(BuildContext context) {
     homeListItem("sample", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => SamplePage()));
+    }),
+    homeListItem("logic page", () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => LogicPage()));
     }),
     homeListItem("bloc sample", () {
       Navigator.push(
