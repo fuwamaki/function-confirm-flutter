@@ -5,7 +5,7 @@ publish_to: "none" # pub.devに公開したい場合はこの行を削除
 version: 1.0.0+1 # +以降がビルド番号
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
   flutter:
