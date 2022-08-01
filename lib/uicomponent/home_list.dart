@@ -26,6 +26,7 @@ import 'package:function_confirm/screen/date_selector_page.dart';
 import 'package:function_confirm/screen/select_control_page.dart';
 import 'package:function_confirm/screen/github_repo_list_page.dart';
 import 'package:function_confirm/screen/access_localhost_page.dart';
+import 'package:function_confirm/screen/webview/simple_webview_page.dart';
 import 'package:function_confirm/uicomponent/home_list_item.dart';
 
 Widget homeList(BuildContext context) {
@@ -49,6 +50,10 @@ Widget homeList(BuildContext context) {
     homeListItem("bloc github repo list", () {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => BlocGithubPage()));
+    }),
+    homeListItem("simple webview", () {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => SimpleWebViewPage()));
     }),
     homeListItem("test list", () {
       Navigator.push(
