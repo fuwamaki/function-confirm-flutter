@@ -52,8 +52,11 @@ Widget homeList(BuildContext context) {
           context, MaterialPageRoute(builder: (context) => BlocGithubPage()));
     }),
     homeListItem("simple webview", () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => SimpleWebViewPage()));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  SimpleWebViewPage(urlString: "https://www.google.com/")));
     }),
     homeListItem("test list", () {
       Navigator.push(
