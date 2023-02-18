@@ -9,9 +9,13 @@ class SimpleWebViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("WebView")),
-        body: WebView(
-          initialUrl: urlString,
-        ));
+      appBar: AppBar(title: Text("WebView")),
+      body: WebViewWidget(
+        controller: WebViewController()
+          ..setJavaScriptMode(JavaScriptMode.unrestricted)
+          ..setBackgroundColor(Colors.white)
+          ..loadRequest(Uri.parse(urlString)),
+      ),
+    );
   }
 }
