@@ -26,6 +26,27 @@ class _State extends State<GithubRepoListPage>
         _isLoading = false;
         _response = response;
       });
+    }).catchError((e) {
+      setState(() {
+        _isLoading = false;
+        showDialog(
+          context: context,
+          builder: (_) {
+            return AlertDialog(
+              title: Text("エラー"),
+              content: Text(e.toString()),
+              actions: [
+                SimpleDialogOption(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("OK"),
+                )
+              ],
+            );
+          },
+        );
+      });
     });
   }
 
