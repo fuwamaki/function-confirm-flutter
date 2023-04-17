@@ -17,7 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.9
   animations: ^2.0.2
-  http: ^0.13.4
+  http: ^0.13.5
   webview_flutter: ^4.0.2
 
   flutter_bloc: ^8.0.1
