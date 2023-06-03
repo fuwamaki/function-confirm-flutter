@@ -5,7 +5,7 @@ publish_to: "none" # pub.devに公開したい場合はこの行を削除
 version: 1.0.0+1 # +以降がビルド番号
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=3.0.1 <4.0.0"
 
 dependencies:
   flutter:
@@ -13,11 +13,11 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  intl: ^0.17.0
+  intl: ^0.18.0
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.9
   animations: ^2.0.2
-  http: ^0.13.5
+  http: ^1.0.0
   webview_flutter: ^4.0.2
 
   flutter_bloc: ^8.0.1
